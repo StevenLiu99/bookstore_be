@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService {
             throw new MyException(12,"用户名重复");
         }
         userAuthEntity.setUsername(username);
-//        userAuthEntity.setUserType(user_type);
+        userAuthEntity.setUserType(1);
         userAuthEntity.setPassword(password);
         userDao.appendUserAuth(userAuthEntity);
 

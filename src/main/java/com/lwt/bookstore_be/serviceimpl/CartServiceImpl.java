@@ -19,7 +19,24 @@ public class CartServiceImpl implements CartService {
     }
 
     @Override
+    public CartEntity findCartByUser_BookId(Integer user_id, Integer book_id) {
+        return cartDao.findCartByUser_BookId(user_id,book_id);
+    }
+
+    @Override
     public void addIntoCart(CartEntity cartEntity) {
         cartDao.addIntoCart(cartEntity);
     }
+
+    @Override
+    public CartEntity findCartByCartId(Integer id) {
+        return cartDao.findOne(id);
+    }
+
+    @Override
+    public List<CartEntity> findCartByOrderId(String id) {
+        return cartDao.getCartByOrderId(id);
+    }
+
+
 }

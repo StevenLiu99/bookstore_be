@@ -19,6 +19,11 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    public List<OrdersEntity> getAllOrders() {
+        return orderDao.getAllOrders();
+    }
+
+    @Override
     public void addOrder(OrdersEntity ordersEntity) {
         orderDao.addOrder(ordersEntity);
     }

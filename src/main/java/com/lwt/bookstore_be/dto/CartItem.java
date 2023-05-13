@@ -9,6 +9,8 @@ import java.math.BigDecimal;
 public class CartItem {
     private Integer key;
     private String bookTitle;
+    private Integer bookId;
+    private Integer cartId;
     private Integer number;
     private BigDecimal price;
     private BigDecimal totalPrice;
@@ -17,9 +19,11 @@ public class CartItem {
 
     public CartItem(BookEntity bookEntity, CartEntity cartEntity,Integer key){
         this.key = key;
+        this.bookId = bookEntity.getId();
         this.bookTitle = bookEntity.getName();
         this.img=bookEntity.getImage();
         this.number = cartEntity.getNumber();
+        this.cartId = cartEntity.getId();
         this.price = bookEntity.getPrice();
         this.totalPrice = BigDecimal.valueOf(number).multiply(this.price) ;
     }
@@ -75,4 +79,19 @@ public class CartItem {
         return img;
     }
 
+    public Integer getCartId() {
+        return cartId;
+    }
+
+    public void setCartId(Integer cartId) {
+        this.cartId = cartId;
+    }
+
+    public Integer getBookId() {
+        return bookId;
+    }
+
+    public void setBookId(Integer bookId) {
+        this.bookId = bookId;
+    }
 }

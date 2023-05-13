@@ -8,4 +8,5 @@ import java.util.List;
 public interface OrderDao {
     List<OrdersEntity> getOrderByUserId(Integer user_id);
     void addOrder(OrdersEntity orderEntity);
+    List<OrdersEntity> getAllOrders();
 }

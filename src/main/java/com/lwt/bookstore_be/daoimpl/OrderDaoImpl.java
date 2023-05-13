@@ -25,4 +25,9 @@ public class OrderDaoImpl implements OrderDao {
     public void addOrder(OrdersEntity orderEntity) {
         orderRepository.save(orderEntity);
     }
+
+    @Override
+    public List<OrdersEntity> getAllOrders() {
+        return orderRepository.getAllOrders();
+    }
 }

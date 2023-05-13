@@ -23,4 +23,21 @@ public class CartDaoImpl implements CartDao {
     public void addIntoCart(CartEntity cartEntity) {
         cartRepository.save(cartEntity);
     }
+
+    @Override
+    public CartEntity findCartByUser_BookId(Integer user_id, Integer book_id) {
+        return cartRepository.getCartEntityByUserIdAndBookId(user_id,book_id);
+    }
+
+    @Override
+    public CartEntity findOne(Integer id) {
+        return cartRepository.getOne(id);
+    }
+
+    @Override
+    public List<CartEntity> getCartByOrderId(String orderId) {
+        return cartRepository.getCartEntitiesByOrderId(orderId);
+    }
+
+
 }

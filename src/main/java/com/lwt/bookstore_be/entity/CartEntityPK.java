@@ -32,8 +32,7 @@ public class CartEntityPK implements Serializable {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        CartEntityPK that = (CartEntityPK) o;
+        if (o == null || getClass() != o.getClass()) return false;        CartEntityPK that = (CartEntityPK) o;
         return userId == that.userId && bookId == that.bookId;
     }
 

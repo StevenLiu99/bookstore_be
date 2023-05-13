@@ -9,21 +9,22 @@ import java.util.Objects;
 @Entity
 @Table(name = "orders", schema = "bookstore", catalog = "")
 public class OrdersEntity {
-    private int id;
+    private String id;
     private Integer userId;
     private String name;
     private String addr;
     private BigDecimal totalPrice;
-    private Integer state;
+
     private Timestamp time;
+    private Integer state;
 
     @Id
     @Column(name = "id")
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -67,16 +68,6 @@ public class OrdersEntity {
         this.totalPrice = totalPrice;
     }
 
-    @Basic
-    @Column(name = "state")
-    public Integer getState() {
-        return state;
-    }
-
-    public void setState(Integer state) {
-        this.state = state;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -87,7 +78,7 @@ public class OrdersEntity {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, userId, name, addr, totalPrice, state);
+        return Objects.hash(id, userId, name, addr, totalPrice);
     }
 
     @Basic
@@ -98,5 +89,15 @@ public class OrdersEntity {
 
     public void setTime(Timestamp time) {
         this.time = time;
+    }
+
+    @Basic
+    @Column(name = "state")
+    public Integer getState() {
+        return state;
+    }
+
+    public void setState(Integer state) {
+        this.state = state;
     }
 }

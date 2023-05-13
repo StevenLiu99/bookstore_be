@@ -5,15 +5,14 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "cart", schema = "bookstore", catalog = "")
-@IdClass(CartEntityPK.class)
 public class CartEntity {
     private int userId;
     private int bookId;
     private Integer number;
-    private Integer orderId;
-    private Integer state;
+    private String orderId;
+    private int id;
 
-    @Id
+    @Basic
     @Column(name = "user_id")
     public int getUserId() {
         return userId;
@@ -23,7 +22,7 @@ public class CartEntity {
         this.userId = userId;
     }
 
-    @Id
+    @Basic
     @Column(name = "book_id")
     public int getBookId() {
         return bookId;
@@ -43,36 +42,36 @@ public class CartEntity {
         this.number = number;
     }
 
+    @Basic
+    @Column(name = "order_id")
+    public String getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
+    }
+
+    @Id
+    @Column(name = "id")
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CartEntity that = (CartEntity) o;
-        return userId == that.userId && bookId == that.bookId && Objects.equals(number, that.number);
+        return userId == that.userId && bookId == that.bookId && id == that.id && Objects.equals(number, that.number) && Objects.equals(orderId, that.orderId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(userId, bookId, number);
-    }
-
-    @Basic
-    @Column(name = "order_id")
-    public Integer getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(Integer orderId) {
-        this.orderId = orderId;
-    }
-
-    @Basic
-    @Column(name = "state")
-    public Integer getState() {
-        return state;
-    }
-
-    public void setState(Integer state) {
-        this.state = state;
+        return Objects.hash(userId, bookId, number, orderId, id);
     }
 }

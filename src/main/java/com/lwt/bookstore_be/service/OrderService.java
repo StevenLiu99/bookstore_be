@@ -7,7 +7,7 @@ import java.util.List;
 public interface OrderService {
 
     List<OrdersEntity> getOrdersByUserId(Integer user_id);
-
+    List<OrdersEntity> getAllOrders();
     void  addOrder (OrdersEntity orderEntity);
 
 }
